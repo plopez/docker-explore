@@ -16,13 +16,19 @@ RUN mkdir /etc/consul.d
 RUN echo '{"service": {"name": "web", "tags": ["nodejs"], "port": 3000}}' > /etc/consul.d/web.json
 
 # envconsul
-RUN apt-get install -y golang
-RUN apt-get install -y git
-ENV GOPATH /.go
-RUN go get -u github.com/armon/consul-kv
-RUN go get -u github.com/hashicorp/envconsul
-WORKDIR /.go/src/github.com/hashicorp/envconsul
-RUN go build
+#RUN apt-get install -y golang
+#RUN apt-get install -y git
+#ENV GOPATH /.go
+#RUN go get -u github.com/armon/consul-kv
+#RUN go get -u github.com/hashicorp/envconsul
+#WORKDIR /.go/src/github.com/hashicorp/envconsul
+#RUN go build
+
+#Debug
+#RUN apt-get install -y lsof
+#RUN apt-get install -y openssh-server
+#RUN mkdir /var/run/sshd
+#RUN echo 'root:screencast' |chpasswd
 
 # Supervisor
 RUN apt-get install -y supervisor
